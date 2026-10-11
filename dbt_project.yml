@@ -33,7 +33,12 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
+  +transient: false
   jaffle_shop:
-    +materialized: view
+    staging:
+      +materialized: view
+    +materialized: table
+    marts:
+      +materialized: table
 
     
